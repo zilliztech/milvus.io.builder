@@ -1,6 +1,6 @@
 # => Build container
-FROM mhart/alpine-node:14 as builder
+FROM node:buster as builder
 WORKDIR /site
 COPY package.json .
-RUN apk add autoconf automake libtool
+# RUN sudo apt-get install autoconf
 RUN yarn install --production && yarn cache clean
